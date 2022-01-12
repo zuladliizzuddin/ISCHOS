@@ -66,7 +66,13 @@ class StudAttendanceController extends Controller
     public function deleteScanRecord(Request $request)
     {
         $id = $request->route('id');
-        $attendance = Attendances::where('id', $id)->delete();
+        $attendance = Attendances::where('id', $id)->get();
+        foreach ($attendance as $attend){
+            Students::where('id', $attend->student_id)->update([
+                'status_attendance' => 'absent'
+            ]);
+        }
+        $deleteScan = Attendances::find($id)->delete();
 
         return redirect()->back();
     }
