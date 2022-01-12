@@ -1,0 +1,1 @@
+<img class="block h-16 w-auto rounded-full p-2" src="{{ asset('img/logo.png') }}" />
