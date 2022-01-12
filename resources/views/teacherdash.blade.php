@@ -97,22 +97,22 @@
                                         <!-- END SMALL CARD ROUNDED -->
 
                                         <!-- SMALL CARD ROUNDED -->
-                                        <a class="hover:no-underline" href="{{ route('payment.list_payment') }}">
+                                        <a class="hover:no-underline"
+                                            href="{{ route('schoolWorkInfo.listHomeworkTeacher') }}">
                                             <div
-                                                class="grid bg-white  dark:bg-gray-800 bg-opacity-95 border-opacity-60  h-40 | p-4 border-solid  rounded-md border-2 shadow-md | flex justify-around cursor-pointer | hover:bg-grey dark:hover:bg-indigo-600 hover:border-transparent | transition-colors duration-500">
-
+                                                class=" grid bg-white dark:bg-gray-800 bg-opacity-95 border-opacity-60 h-40 | p-4 border-solid  rounded-md border-2 shadow-md | flex justify-around cursor-pointer | hover:bg-grey dark:hover:bg-indigo-600 hover:border-transparent | transition-colors duration-500">
                                                 <div class="flex justify-center items-center">
-                                                    <img class="w-16 h-16"
-                                                        src="{{ asset('img/Payment_icon.png') }}" alt="" />
+                                                    <img class="w-16 h-16 "
+                                                        src="{{ asset('img/homework_icon.png') }}" alt="" />
                                                 </div>
-
                                                 <div class="text-center pt-2 text-xs">
-                                                    <p class="text-gray-900 dark:text-gray-300 ">Payment Of
-                                                        Fees</p>
+                                                    <p class="text-gray-900 dark:text-gray-300 ">SchoolWork
+                                                        Information</p>
                                                 </div>
                                             </div>
                                         </a>
                                         <!-- END SMALL CARD ROUNDED -->
+
 
 
                                     </div>
@@ -160,31 +160,6 @@
 
                                         <!-- SMALL CARD ROUNDED -->
                                         <a class="hover:no-underline"
-                                            href="{{ route('schoolWorkInfo.listHomeworkTeacher') }}">
-                                            <div
-                                                class=" grid bg-white dark:bg-gray-800 bg-opacity-95 border-opacity-60 h-40 | p-4 border-solid  rounded-md border-2 shadow-md | flex justify-around cursor-pointer | hover:bg-grey dark:hover:bg-indigo-600 hover:border-transparent | transition-colors duration-500">
-                                                <div class="flex justify-center items-center">
-                                                    <img class="w-16 h-16 "
-                                                        src="{{ asset('img/homework_icon.png') }}" alt="" />
-                                                </div>
-                                                <div class="text-center pt-2 text-xs">
-                                                    <p class="text-gray-900 dark:text-gray-300 ">SchoolWork
-                                                        Information</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- END SMALL CARD ROUNDED -->
-
-
-
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div
-                                        class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 grid-cols-3 gap-1 px-4 pb-2">
-                                        <!-- SMALL CARD ROUNDED -->
-                                        <a class="hover:no-underline"
                                             href="{{ route('socialMediaGroup.view_media') }}">
                                             <div
                                                 class="grid bg-white  dark:bg-gray-800 bg-opacity-95 border-opacity-60  h-40  | p-4 border-solid  rounded-md border-2 shadow-md | flex justify-around cursor-pointer | hover:bg-grey dark:hover:bg-indigo-600 hover:border-transparent | transition-colors duration-500">
@@ -199,6 +174,17 @@
                                             </div>
                                         </a>
                                         <!-- END SMALL CARD ROUNDED -->
+
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <div
+                                        class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 grid-cols-3 gap-1 px-4 pb-2">
+
 
                                         <!-- SMALL CARD ROUNDED -->
                                         <a class="hover:no-underline" href="{{ route('teacherInfo.list_teacher') }}">
