@@ -132,3 +132,16 @@
     </div>
   
 </x-app-layout>
+
+<script type='text/javascript'>
+    function reloadIt() {
+        if (window.localStorage) {
+            if (!localStorage.getItem('firstLoad')) {
+                localStorage['firstLoad'] = true;
+                window.location.reload();
+            } else
+                localStorage.removeItem('firstLoad');
+        }
+    }
+    setTimeout('reloadIt()', 0)();
+</script>

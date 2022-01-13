@@ -83,16 +83,17 @@ class ProfileControllers extends Controller
                 'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:11',
             ]);
             
-            $updateTeacher = Teacher::where('id', $user->id)->update([
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'email' => $request-> email,
-                'phone_number' =>$request->phone_number,
-                'username' => $request->username,
-                'teacherImage' => $request->file('teacherImage')->store('teacherInfoFile', ['disk' => 'public']),
-                
+            $updateTeacher=Teacher::find($user->id);
+            $updateTeacher->first_name =  $request->input('first_name');
+            $updateTeacher->last_name = $request->input('last_name');
+            $updateTeacher->email = $request->input('email');
+            $updateTeacher->phone_number = $request->input('phone_number');
+            $updateTeacher->username = $request->input('username');
 
-            ]);
+            if($request->file('teacherImage') != null ){
+                $updateTeacher->teacherImage = $request->file('teacherImage')->store('teacherInfoFile', ['disk' => 'public']);
+            }
+            $updateTeacher->save();
 
             $updateUser = User::where('id', $user->user_id)->update([
                 'first_name' => $request->first_name,
