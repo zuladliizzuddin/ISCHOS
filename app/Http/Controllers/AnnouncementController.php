@@ -165,4 +165,13 @@ class AnnouncementController extends Controller
         
     }
 
+    public function deleteAnnouncement(Request $request)
+    {
+        $id = $request->route('id');
+        // dd($id);
+        Announcement::where('id', $id)->delete();
+
+        return redirect()->route('announcement.listAnnouncement')->with('success','Delete Sucessfully');
+    }
+
 }

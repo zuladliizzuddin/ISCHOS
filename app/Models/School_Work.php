@@ -11,6 +11,7 @@ class School_Work extends Model
     protected $table = 'school_works';
     protected $fillable = [
         'id',
+        'teacher_id',
         'class_id',
         'subject_id',
         'title',

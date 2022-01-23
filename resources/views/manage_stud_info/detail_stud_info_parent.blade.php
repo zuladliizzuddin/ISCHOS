@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-3xl text-center text-white leading-tight  bg-indigo-900 border-indigo-300 uppercase">
-            {{ __('Student Information') }}
+            <a href="{{ route('studInfo.detailStudent', $detailStudent->id)}}">{{ __('STUDENT INFORMATION') }}</a>
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

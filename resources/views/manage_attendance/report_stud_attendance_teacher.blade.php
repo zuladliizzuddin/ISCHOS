@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2
             class=" uppercase font-semibold text-3xl text-center text-white leading-tight  bg-indigo-900 border-indigo-300 ">
-            {{ __('Student Attendance') }}
+            <a href="/studAttendance">{{ __('STUDENT ATTENDANCE') }}</a>
         </h2>
     </x-slot>
 

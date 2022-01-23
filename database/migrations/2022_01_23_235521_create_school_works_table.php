@@ -17,6 +17,7 @@ class CreateSchoolWorksTable extends Migration
             $table->id();
             $table->foreignId('class_id')->constrained();
             $table->foreignId('subject_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
             $table->string('title');
             $table->string('due_date');
             $table->string('description');

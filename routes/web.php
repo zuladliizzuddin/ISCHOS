@@ -122,6 +122,9 @@ Route::prefix('/announcement')->group(function () {
     Route::get('/editAnnouncementView/{id}', [AnnouncementController::class, 'editAnnouncementView'])
         ->name('announcement.editAnnouncementView');
 
+    Route::get('/deleteAnnouncement/{id}', [AnnouncementController::class, 'deleteAnnouncement'])
+        ->name('announcement.deleteAnnouncement');
+
     Route::post('/updateAnnouncement/{id}', [AnnouncementController::class, 'updateAnnouncement'])
         ->name('announcement.updateAnnouncement');
 

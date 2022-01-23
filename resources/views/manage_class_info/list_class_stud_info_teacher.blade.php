@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-3xl text-center text-white leading-tight  bg-indigo-900 border-indigo-300 ">
-            {{ __('CLASS INFORMATION') }}
+            <a href="/classInfo">{{ __('CLASS INFORMATION') }}</a>
         </h2>
     </x-slot>
             <div class="bg-white  overflow-hidden shadow-sm sm:rounded-lg">

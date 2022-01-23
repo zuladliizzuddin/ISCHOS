@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-bold text-3xl text-center text-white leading-tight  bg-indigo-900 border-indigo-300 ">
-            {{ __('ANNOUNCEMENT') }}
+            <a href="/announcement/listAnnouncement">{{ __('ANNOUNCEMENT') }}</a>
         </h2>
     </x-slot>
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -37,7 +37,9 @@
                                 <h1 class="font-bold text-xl md:text-3xl">
                                     {{ $detailAnnouncement->title }}
                                 </h1>
-                                <textarea class="resize-none border-none w-full h-40 pt-2 py-2 text-base md:text-xl" disabled> {{ $detailAnnouncement->description }}</textarea>
+                                <br>
+                                <textarea class="resize-none border-none w-full h-40 pt-2 py-2 text-base md:text-xl"
+                                    disabled>{{ $detailAnnouncement->description }}</textarea>
                                 {{-- <div class="flex flex-wrap">
                                             <div class="w-full md:w-1/3 text-sm font-medium capitalize">
                                                 {{$detailUser->first_name}} {{$detailUser->last_name}}
@@ -47,27 +49,45 @@
                         </div>
                     </div>
             </section>
-            <div class='flex items-center justify-center pt-10 pb-8 '>
-                <button
-                    class='md:w-5/12 w-11/12 rounded-full bg-indigo-900 border-indigo-300  shadow-xl font-medium text-white px-4 py-2'
-                    onclick="location.href='{{ '/announcement/editAnnouncementView' }}/{{ $id != null ? $id : 0 }}'">EDIT</button>
+            <div class='flex items-center justify-center pt-5 pb-8 '>
+                @if ($detailUser == $teacher)
+
+                    <button
+                        class='md:w-5/12 w-11/12 rounded-full bg-indigo-900 border-indigo-300  shadow-xl font-medium text-white px-4 py-2'
+                        onclick="location.href='{{ '/announcement/editAnnouncementView' }}/{{ $id != null ? $id : 0 }}'">EDIT</button>
+                    <button
+                        class='md:w-5/12 w-2/4 bg-indigo-900 border-indigo-300 rounded-full shadow-xl font-medium text-white px-4 py-2'
+                        onclick="confirmDelete('{{ '/announcement/deleteAnnouncement' }}/{{ $id != null ? $id : 0 }}')">DELETE</button>
+
+                @else
+
+                @endif
+
             </div>
 
         </div>
     </div>
 
+    <script type='text/javascript'>
+        function reloadIt() {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                } else
+                    localStorage.removeItem('firstLoad');
+            }
+        }
+        setTimeout('reloadIt()', 0)();
+
+        function confirmDelete(url) {
+            if (confirm("Are you sure you want to delete this?")) {
+                window.location.replace(url);
+            } else {
+                false;
+            }
+        }
+    </script>
+
 
 </x-app-layout>
-
-<script type='text/javascript'>
-    function reloadIt() {
-        if (window.localStorage) {
-            if (!localStorage.getItem('firstLoad')) {
-                localStorage['firstLoad'] = true;
-                window.location.reload();
-            } else
-                localStorage.removeItem('firstLoad');
-        }
-    }
-    setTimeout('reloadIt()', 0)();
-</script>

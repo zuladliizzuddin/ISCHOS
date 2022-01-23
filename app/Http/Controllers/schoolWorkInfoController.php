@@ -29,7 +29,7 @@ class schoolWorkInfoController extends Controller
             $className = School_Class::where('id', $request->class)->get();
 
             if ($request->class != null) {
-                $school_work = School_Work::where('class_id', $request->class)->orderBy('created_at', 'DESC')->get();
+                $school_work = School_Work::where('class_id', $request->class)->where('teacher_id', $teacher->id)->orderBy('created_at', 'DESC')->get();
                 $date = Carbon::now()->format('d/m/Y');
                 $classid = $request->class;
                 
@@ -39,7 +39,7 @@ class schoolWorkInfoController extends Controller
                 //dd($school_work[0]->school_class);
 
             } else {
-                $school_work = School_Work::orderBy('created_at', 'DESC')->get();
+                $school_work = School_Work::where('teacher_id', $teacher->id)->orderBy('created_at', 'DESC')->get();
                 $date = Carbon::now()->format('d/m/Y');
                 $classid = null;
 
@@ -105,9 +105,11 @@ class schoolWorkInfoController extends Controller
     {
 
         $id = $request->class;
+        $teacherid = Auth::user()->teacher->id;
         if ($request->file('picture') != null) {
             $school_work = School_Work::create([
 
+                'teacher_id' => $teacherid,
                 'class_id' => $request->class,
                 'subject_id' => $request->subject,
                 'title' => $request->title,
@@ -119,6 +121,7 @@ class schoolWorkInfoController extends Controller
         } else {
             $announcement = School_Work::create([
 
+                'teacher_id' => $teacherid,
                 'class_id' => $request->class,
                 'subject_id' => $request->subject,
                 'title' => $request->title,
